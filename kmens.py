@@ -1,3 +1,5 @@
+import cv2
+
 # Lista de imagens
 lista_imagens = [
     'Cachorro_0.png',
@@ -7,3 +9,10 @@ lista_imagens = [
     'Cachorro_4.png',
     'Cachorro_5.png'
 ]
+
+# Número de clusters
+clusters = 20
+
+for imagem in lista_imagens:
+    # Leitura da imagem
+    image = cv2.imread(imagem)
