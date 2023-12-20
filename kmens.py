@@ -9,16 +9,16 @@ warnings.filterwarnings("ignore", category=UserWarning, module="joblib")
 
 # Lista de imagens
 lista_imagens = [
-    'Cachorro_0.png',
-    'Cachorro_1.png',
-    'Cachorro_2.png',
-    'Cachorro_3.png',
-    'Cachorro_4.png',
-    'Cachorro_5.png'
+    #'Cachorro_new_0.png'#,
+    #'Cachorro_new_1.png',
+    #'Cachorro_new_2.png',
+    #'Cachorro_new_3.png',
+    #'Cachorro_new_4.png',
+    'Cachorro_new_5.png'
 ]
 
 # Número de clusters
-clusters = 20
+clusters = 1
 
 for imagem in lista_imagens:
     # Leitura da imagem
@@ -38,8 +38,8 @@ for imagem in lista_imagens:
     cv2.imwrite(f'Imagem_Segmentada_{clusters}_{imagem}', segmented_image)
     
     print('------------------------------------------------------------')
-    print(f'Cores na imagem antes do processamento:', len(np.unique(image)))
+    print(f'Cores na imagem antes do processamento:', len(np.unique(image.reshape(-1, image.shape[2]), axis=0)))
     print(f'Cores na imagem:', len(np.unique(segmented_image)))  # retorna quantidade de cores diferentes
 
     file_size = os.path.getsize(f'Imagem_Segmentada_{clusters}_{imagem}')
-    print("O tamanho do arquivo :", file_size/1000, "Kbytes") 
+    print("O tamanho do arquivo :", file_size/1000, "Kbytes")
